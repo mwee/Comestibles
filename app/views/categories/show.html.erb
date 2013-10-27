@@ -1,0 +1,48 @@
+<% if signed_in? %>
+
+
+  <p id="notice"><%= notice %></p>
+  <h1>Products For Sale</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for product in @category.products %>
+        <tr>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td>
+  	        <%= form_tag(line_items_path, :method => "post") do %>
+  			  <%= hidden_field_tag(:product_id, product.id) %>
+  			  <%= submit_tag("Add to Cart") %>
+  			<% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+
+  <h1>Comestibles</h1>
+
+  <%= image_tag "groceries.png", id: "groceries_image" %>
+
+  <p class="blurb">
+  Buying groceries is a pain in the ass. Every week. The problem only gets worse when you’re trying to buy groceries for a large group. Comestible makes shared groceries easy.
+  </p>
+
+
+  <button>
+  <%= link_to "Login", signin_url %>
+  </button>
+
+  <br />
+  <br />
+
+  <%= link_to "If you don't have an account, register now!", signup_url %>
+
+<% end %>

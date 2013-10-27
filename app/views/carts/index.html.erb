@@ -1,0 +1,44 @@
+<% if signed_in? %>
+
+<h1>Listing carts</h1>
+
+<table>
+  <tr>
+    <th>Purchased at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @carts.each do |cart| %>
+  <tr>
+    <td><%= cart.purchased_at %></td>
+    <td><%= link_to 'Show', cart %></td>
+    <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+    <td><%= link_to 'Destroy', cart, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cart', new_cart_path %>
+<% else %> 
+  <h1>Comestibles</h1>
+
+  <%= image_tag "groceries.png", id: "groceries_image" %>
+
+  <p class="blurb">
+  Buying groceries is a pain in the ass. Every week. The problem only gets worse when you’re trying to buy groceries for a large group. Comestible makes shared groceries easy.
+  </p>
+
+
+  <button>
+  <%= link_to "Login", signin_url %>
+  </button>
+
+  <br />
+  <br />
+
+  <%= link_to "If you don't have an account, register now!", signup_url %>
+<% end %>
