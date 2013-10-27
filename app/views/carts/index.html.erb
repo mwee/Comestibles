@@ -1,0 +1,32 @@
+<h1>All Carts</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Cart Name</th>
+    <th>Finalized?</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @carts.each do |cart| %>
+  <tr>
+  
+    <td>
+      <%= link_to cart.cart_name, cart %>
+    </td>
+
+    <td>
+      <% if cart.finalized %>
+        Yes
+      <% else %>
+        No
+      <% end %>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create a New Cart', new_cart_path, :class => 'btn btn-primary' %>
