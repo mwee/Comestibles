@@ -1,6 +1,6 @@
 # Teamwork
 
-This is a stub for the Teamwork writeup.  The only section that is required for 3.2 is the MVP subsection of Plan.
+This is a stub for the Teamwork writeup.  We have documented our MVP choices and decisions here.
 
 ## Plan
 
