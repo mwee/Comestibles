@@ -4,7 +4,7 @@
   <tr>
     <th>Cart Name</th>
     <th>Finalized?</th>
-    <th></th>
+    <th>Actions</th>
     <th></th>
   </tr>
 
@@ -21,6 +21,10 @@
       <% else %>
         No
       <% end %>
+    </td>
+
+    <td>
+    <%= link_to 'Delete', cart_path(cart), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
     </td>
 
   </tr>

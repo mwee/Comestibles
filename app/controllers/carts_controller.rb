@@ -34,6 +34,8 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find(params[:id])
     @cart.destroy
+    flash[:notice] = "Successfully destroyed cart."
+    redirect_to root_url
   end
 
 
@@ -45,6 +47,5 @@ class CartsController < ApplicationController
      render @cart
     end 
   end
-
 
 end

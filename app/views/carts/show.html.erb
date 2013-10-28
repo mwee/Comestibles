@@ -19,15 +19,10 @@
   </tr>
   <% for line_item in @cart.line_items %>
     <tr class="<%= cycle :odd, :even %>">
-
-    <% if line_item.product %>
-
       <td><%=h line_item.product.name %></td>
       <td class="qty"><%= line_item.quantity %></td>
       <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
       <td class="price"><%= number_to_currency(line_item.full_price) %></td>
-
-    <% end %>
 
     </tr>
   <% end %>
@@ -42,22 +37,15 @@
 
   </tr>
 </table>
-<% @params = {'sid' => 1817037, 'mode' => '2CO', 'merchant_order_id' => @cart.id} %>
+<% #@params = {'sid' => 1817037, 'mode' => '2CO', 'merchant_order_id' => @cart.id} %>
 <% i=0 %>
 <% for line_item in @cart.line_items %>
-
-  <% if line_item.product %>
-
     <% @params['li_'+i.to_s+'_product_id'] = line_item.product.id.to_s %>
     <% @params['li_'+i.to_s+'_name']       = line_item.product.name %>
     <% @params['li_'+i.to_s+'_price']      = line_item.product.price %>
     <% @params['li_'+i.to_s+'_quantity']   = line_item.quantity.to_s %>
     <% i+=1 %>
-
-  <% end %>
-
 <% end %>
-
 
 <% if not @cart.finalized%>
   <div>
