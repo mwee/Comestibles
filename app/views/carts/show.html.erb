@@ -37,7 +37,7 @@
 
   </tr>
 </table>
-<% #@params = {'sid' => 1817037, 'mode' => '2CO', 'merchant_order_id' => @cart.id} %>
+<% @params = {'sid' => 1817037, 'mode' => '2CO', 'merchant_order_id' => @cart.id} %>
 <% i=0 %>
 <% for line_item in @cart.line_items %>
     <% @params['li_'+i.to_s+'_product_id'] = line_item.product.id.to_s %>
