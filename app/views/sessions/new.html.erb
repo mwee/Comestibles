@@ -1,0 +1,20 @@
+<h1>Comestibles</h1>
+
+<%= image_tag "groceries.png", id: "groceries_image" %>
+
+<h2>Log in</h2>
+
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Log in" %></div>
+
+<% end %>
+
+<%= link_to 'Or create a new account', new_user_path%>

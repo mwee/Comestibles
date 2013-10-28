@@ -5,12 +5,19 @@ ExampleStore::Application.routes.draw do
   end
 
   resources :line_items
-
   resources :categories
-
   resources :orders
-
   resources :products
+  resources :sessions
+  resources :users
+
+  #copied from railscast 250 - 270
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  
+  get "welcome" => "welcome#index", :as => "welcome"
+  root :to => "welcome#index"
 
   post "carts/:id/finalize" => "carts#finalize", :as => "finalize_cart"
 
@@ -21,6 +28,6 @@ ExampleStore::Application.routes.draw do
   get 'orders/:id/refund' => 'orders#refund', :as => 'refund'
 
   # root :to => 'categories#show', :id => 1
-  root :to => 'carts#index'
+  # root :to => 'carts#index'
 
 end

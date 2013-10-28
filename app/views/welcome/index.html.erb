@@ -1,0 +1,28 @@
+<h1>Comestibles</h1>
+
+<%= image_tag "groceries.png", id: "groceries_image" %>
+
+<p class="blurb">
+Buying groceries is a pain in the ass. Every week. The problem only gets worse when you’re trying to buy groceries for a large group. Comestible makes shared groceries easy.
+</p>
+
+<% if not current_user %>
+
+<button>
+<%= link_to "Login", login_url %>
+</button>
+
+<% else %>
+
+<button>
+<%= link_to "Take me to my comestibles!", grocery_lists_url %>
+</button>
+
+
+<% end %>
+
+<br />
+<br />
+
+<%= link_to "If you don't have an account, register now!", signup_url %>
+

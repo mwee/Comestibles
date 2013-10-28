@@ -40,3 +40,35 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+body{
+    text-align: center;
+}
+body table{
+    float:center;
+    margin: 0 auto;
+}
+#groceries_image {
+    max-width: 10%;
+}
+#navbar>ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+#navbar>ul>li{
+    display: inline;
+    font-size: 20px;
+}
+.navbar-comestibles{
+    float: left;
+}
+.navbar-link{
+    float:right;
+}
+.blurb {
+    text-align: center;
+    max-width: 300px;
+    margin: 15px auto 15px auto;
+}
+

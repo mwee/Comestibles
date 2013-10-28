@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # gem 'rails', '3.2.2'
-ruby '2.0.0'
+# ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
@@ -35,8 +35,12 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'twocheckout'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+#Use safe attributes to fix possible bad names
+gem 'safe_attributes'
+gem 'protected_attributes'
+
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
