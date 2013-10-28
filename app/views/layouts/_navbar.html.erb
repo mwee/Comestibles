@@ -13,12 +13,6 @@
             
             <li><%= link_to "View or Edit Products", products_path %></li>
             
-            <!-- <li><%= link_to "View/Edit Orders", orders_path %></li> -->
-            
- <!--            <li>
-              <%= link_to "Buy Products", { :controller => "categories", :action => "show", :id => 1 } %>
-            </li> -->
-
             <li>
               <%= link_to "View All Carts", { :controller => "carts", :action => "index" } %>
             </li>
@@ -27,6 +21,15 @@
           <% if session[:cart_id] %>
 <!--             <li><%= link_to "Current Cart", { :controller => "carts", :action => "show", :id => session[:cart_id] } %></li> -->
           <% end %>
+
+          <li>
+            <a href="https://docs.google.com/forms/d/19kJBLD7IyIix-7LOOcgiyWHfBxmfuKL-IhjSrZo1PIo/viewform" target="_blank">Feedback</a>
+          </li>
+
+          <li>
+            <%= link_to "Logout", "logout" %>
+          </li>
+
         </ul>
       </div>
     </div>
