@@ -1,24 +1,24 @@
 source 'https://rubygems.org'
 
-  # gem 'rails', '3.2.2'
-  # ruby '2.0.0'
-  gem 'rails', '4.0.0'
+    # gem 'rails', '3.2.2'
+    # ruby '2.0.0'
+    gem 'rails', '4.0.0'
 
-  # Bundle edge Rails instead:
-  # gem 'rails', :git => 'git://github.com/rails/rails.git'
+    # Bundle edge Rails instead:
+    # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-  group :development, :test do
-    gem 'sqlite3'
+    group :development, :test do
+      gem 'sqlite3'
+    end
+
+  group :production do
+    gem 'pg'
+    gem 'rails_12factor', '0.0.2'
   end
 
-group :production do
-  gem 'pg'
-  gem 'rails_12factor', '0.0.2'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-# group :assets do
+  # Gems used only for assets and not required
+  # in production environments by default.
+  # group :assets do
 
 	gem "therubyracer"
 	gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
