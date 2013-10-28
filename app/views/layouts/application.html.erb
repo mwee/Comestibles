@@ -11,40 +11,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href=<%= root_url %>>Comestibles</a>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <% if session[:admin] %>
-            
-            <li><%= link_to "View or Edit Products", products_path %></li>
-            
-            <!-- <li><%= link_to "View/Edit Orders", orders_path %></li> -->
-            
- <!--            <li>
-              <%= link_to "Buy Products", { :controller => "categories", :action => "show", :id => 1 } %>
-            </li> -->
 
-            <li>
-              <%= link_to "View All Carts", { :controller => "carts", :action => "index" } %>
-            </li>
+<div class="container">
+    <% if flash[:notice] %>
+        <div class="notice" id="notice"><%= flash[:notice] %></div>
+    <% end %>
 
-          <% end %>
-          <% if session[:cart_id] %>
-<!--             <li><%= link_to "Current Cart", { :controller => "carts", :action => "show", :id => session[:cart_id] } %></li> -->
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <% if flash[:error] %>
+        <div class="error" id="error"><%= flash[:error] %></div>
+    <% end %>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="span9"><%= yield %></div>

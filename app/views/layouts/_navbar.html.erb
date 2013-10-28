@@ -1,24 +1,34 @@
-<div id="navbar">
-    <ul>
-        <li>
-            <a href="./" class="navbar-comestibles">Comestibles</a>
-        </li>
-    </ul>
-    <ul class="navbar-link">
-        <!-- <li>
-          <a href="./grocery_lists">Groups</a> |
-        </li> -->
-        <li>
-          <a href="./grocery_lists">Lists</a> |
-        </li>
-        <li>
-          <a href="./bills">My Bills</a> |
-        </li>
-        <li>
-          <a href="./settings">Settings</a> |
-        </li>
-        <li>
-          <a href="./logout">Logout</a>
-        </li>
-    </ul>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href=<%= root_url %>>Comestibles</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <% if session[:admin] %>
+            
+            <li><%= link_to "View or Edit Products", products_path %></li>
+            
+            <!-- <li><%= link_to "View/Edit Orders", orders_path %></li> -->
+            
+ <!--            <li>
+              <%= link_to "Buy Products", { :controller => "categories", :action => "show", :id => 1 } %>
+            </li> -->
+
+            <li>
+              <%= link_to "View All Carts", { :controller => "carts", :action => "index" } %>
+            </li>
+
+          <% end %>
+          <% if session[:cart_id] %>
+<!--             <li><%= link_to "Current Cart", { :controller => "carts", :action => "show", :id => session[:cart_id] } %></li> -->
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
