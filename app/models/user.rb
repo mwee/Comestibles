@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :on => :create
   validates_length_of :password, :in => 1..50, :on => :create
 
+  def self.count_users
+    return User.all.size
+  end
+
 end

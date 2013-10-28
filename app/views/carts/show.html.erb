@@ -32,7 +32,7 @@
     </td>
 
     <td class="amount owed" colspan="4">
-      Amount each user owes: <%= number_to_currency @cart.total_price / 2 %>
+      Amount each user owes: <%= number_to_currency @cart.total_price / User.count_users %>
     </td>
 
   </tr>
