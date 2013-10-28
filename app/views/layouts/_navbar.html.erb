@@ -9,27 +9,12 @@
       <a class="brand" href=<%= root_url %>>Comestibles</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <% if session[:admin] %>
-            
-            <li><%= link_to "View or Edit Products", products_path %></li>
-            
-            <li>
-              <%= link_to "View All Carts", { :controller => "carts", :action => "index" } %>
-            </li>
-
-          <% end %>
-          <% if session[:cart_id] %>
-<!--             <li><%= link_to "Current Cart", { :controller => "carts", :action => "show", :id => session[:cart_id] } %></li> -->
-          <% end %>
-
+          <li><%= link_to "View or Edit Products", products_path %></li>
+          <li> <%= link_to "View All Carts", { :controller => "carts", :action => "index" } %></li>
           <li>
             <a href="https://docs.google.com/forms/d/19kJBLD7IyIix-7LOOcgiyWHfBxmfuKL-IhjSrZo1PIo/viewform" target="_blank">Feedback</a>
           </li>
-
-          <li>
-            <%= link_to "Logout", "logout" %>
-          </li>
-
+          <li> <%= link_to "Logout", "logout" %> </li>
         </ul>
       </div>
     </div>
