@@ -5,7 +5,8 @@ class Cart < ActiveRecord::Base
 			  	presence: true, 
 			  	length: { minimum: 3 },
 			  	uniqueness: { case_sensitive: true }
-	# attr_accessible :finalized
+	
+	attr_accessible :cart_name
 
 	def total_price
 		line_items.to_a.sum(&:full_price)

@@ -12,7 +12,7 @@ ExampleStore::Application.routes.draw do
 
   resources :products
 
-  get "carts/:id/finalize" => "carts#finalize", :as => "finalize_cart"
+  post "carts/:id/finalize" => "carts#finalize", :as => "finalize_cart"
 
   get '/return'=>'carts#return'
 
