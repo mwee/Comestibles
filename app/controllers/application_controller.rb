@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
-	helper :all
+	#requires users to login
+  before_action :require_login
+
+  helper :all
     protect_from_forgery
 
     def current_cart
