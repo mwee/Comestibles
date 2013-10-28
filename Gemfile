@@ -11,9 +11,10 @@ source 'https://rubygems.org'
     gem 'sqlite3'
   end
 
-  group :production do
-    gem 'pg'
-  end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor', '0.0.2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
