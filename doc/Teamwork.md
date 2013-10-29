@@ -79,6 +79,10 @@ List of problems to resolve in concepts, behaviors or implementation:
 * In the schema design, we currently have “Categories” that Products are classified under. In the current MVP, we classify each product as belonging to the category “1”, which may seem to make the classification superfluous. We chose this design to facilitate our final implementation which will allow products to be classified as Shared or Individual.
 * For the MVP, our schema  is relatively unsophisticated and may seem simplistic. Indeed, it lacks much of the inter-data relationships that we plan to implement for our final version so that the web application is useful to a wider audience that a single “focus group”. Therefore, in our final version, there will be more associations as we implement restrictions and invitations to carts. We believe our MVP schema provide an excellent starting point for this.
 
-Acknowledgements
+#### Notes
+* rake db:seed needs to be run for the MVP to work
 
-During implementation we referred to code and cart implementation of 2checkouthttps://github.com/craigchristenson/2checkout-rails-integration
+
+#### Acknowledgements
+
+* During implementation we referred to code and cart implementation of 2checkouthttps://github.com/craigchristenson/2checkout-rails-integration
