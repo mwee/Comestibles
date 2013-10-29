@@ -37,15 +37,6 @@ ActiveRecord::Schema.define(version: 20131029003636) do
     t.datetime "updated_at"
   end
 
-  create_table "orders", force: true do |t|
-    t.decimal  "total"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "card_holder_name"
-    t.string   "order_number"
-    t.string   "status"
-  end
-
   create_table "products", force: true do |t|
     t.string   "name"
     t.decimal  "price"
