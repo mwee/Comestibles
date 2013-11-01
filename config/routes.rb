@@ -1,5 +1,7 @@
 ExampleStore::Application.routes.draw do
   
+  resources :groups
+
   resources :carts do
   	resources :categories, only: [:show, :index]
   end

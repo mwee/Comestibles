@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :name, :password_confirmation
 
   #associations
-  # has_many :grocery_lists, through: :list_memberships # probably need to specify the source here...
+  has_many :groups#, through: :list_memberships # probably need to specify the source here...
 
   #password requirements - from Railscast 250 and 270
   has_secure_password
