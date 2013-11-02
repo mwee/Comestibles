@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-    attr_accessible :owner_id, :name
+    attr_accessible :owner_id, :name, :id
 
     #set up the user which owns the group
     has_one :user

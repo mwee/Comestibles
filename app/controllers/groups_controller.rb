@@ -24,9 +24,14 @@ class GroupsController < ApplicationController
     #set the group's owner to the current user
     params[:group][:owner_id] = current_user.id
     @group = Group.new(group_params)
-
+    
     if @group.save
-      redirect_to @group, notice: 'Group was successfully created.'
+      @group_membership = GroupMembership.new({user_id: current_user.id, group_id: @group.id})
+      if @group_membership.save
+        redirect_to @group, notice: 'Group was successfully created.'
+      else
+        render action: 'new'
+      end
     else
       render action: 'new'
     end
