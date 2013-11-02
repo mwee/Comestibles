@@ -6,27 +6,27 @@ class GroupMembershipTest < ActiveSupport::TestCase
     assert user.joined_groups.length == 0
   end
 
-  test "users should be to have joined groups" do
+  test "users should be able to have joined groups" do
+    
+    #set up user
     test_user = FactoryGirl.create(:user)
     test_group = FactoryGirl.create(:group)
+    
+    #join a group
     group_membership = FactoryGirl.create(:group_membership, user_id: test_user.id, group_id: test_group.id)
-    puts "joined groups do"
-    puts test_user.joined_groups
-    puts "end"
+    
     assert test_user.joined_groups.length == 1
   end
 
-
-  test "A groups owner should be its creator" do
-    assert true
+  test "users should be able to join a group" do
+    #should have a method in users for joining a group
+    assert false
   end
 
-  test "users should be able to be members of groups" do 
-    assert true
-  end
 
-  test "groups should have members" do
-    assert true
+  test "groups should joined members" do
+    #should be able call something like groups.members
+    assert false
   end
 
 end
