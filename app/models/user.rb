@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   #associations
   has_many :groups
-  has_many :group_memberships, through: :group_memberships, source: "group" # probably need to specify the source here...
+  has_many :group_memberships
+  has_many :joined_groups, :through => :group_memberships, source: "group"
 
   #password requirements - from Railscast 250 and 270
   has_secure_password
