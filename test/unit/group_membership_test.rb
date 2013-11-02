@@ -2,10 +2,18 @@ require 'test_helper'
 
 class GroupMembershipTest < ActiveSupport::TestCase
   test "users should initially have no group memberships" do
-    user = FactoryGirl.build(:user)
-    puts user.joined_groups
-    # assert user.group_memberships.length == 0
-    assert true
+    user = FactoryGirl.create(:user)
+    assert user.joined_groups.length == 0
+  end
+
+  test "users should be to have joined groups" do
+    test_user = FactoryGirl.create(:user)
+    test_group = FactoryGirl.create(:group)
+    group_membership = FactoryGirl.create(:group_membership, user_id: test_user.id, group_id: test_group.id)
+    puts "joined groups do"
+    puts test_user.joined_groups
+    puts "end"
+    assert test_user.joined_groups.length == 1
   end
 
 
