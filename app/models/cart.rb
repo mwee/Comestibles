@@ -1,4 +1,6 @@
 class Cart < ActiveRecord::Base
+
+	has_one :group
 	has_many :line_items, dependent: :destroy
 
 	validates :cart_name, 

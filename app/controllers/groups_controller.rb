@@ -21,6 +21,8 @@ class GroupsController < ApplicationController
 
   # POST /groups
   def create
+    #set the group's owner to the current user
+    params[:group][:owner_id] = current_user.id
     @group = Group.new(group_params)
 
     if @group.save

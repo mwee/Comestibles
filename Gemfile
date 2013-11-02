@@ -7,6 +7,10 @@ source 'https://rubygems.org'
     # Bundle edge Rails instead:
     # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+    group :development do
+      gem 'webrick', '~> 1.3.1'
+    end
+
     group :development, :test do
       gem 'sqlite3'
     end
