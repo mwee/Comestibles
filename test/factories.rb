@@ -3,7 +3,8 @@ FactoryGirl.define do
   
   factory :user do
     name "John"
-    email { "#{name.downcase}@example.com" }
+    id 0
+    email { "#{name.downcase}#{id}@example.com" }
     password { "#{name.downcase}@example.com" + "000" }
     password_confirmation { "#{name.downcase}@example.com" + "000" }
   end
