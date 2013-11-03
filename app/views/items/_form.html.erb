@@ -1,4 +1,4 @@
-<%= form_for ([@cart, @cart.items.build]), :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for ([@group, @cart, @cart.items.build]), :html => { :class => 'form-horizontal' } do |f| %>
 
   <% if @item.errors.any? %>
     <div id="error_explanation">
@@ -39,7 +39,7 @@
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', @cart, :class => 'btn' %>
+      <%= link_to 'Cancel', group_cart_path(@group, @cart), :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

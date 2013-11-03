@@ -12,9 +12,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    # @item = Item.new
-    # @cart = Cart.find(params[:cart_id])
-
+    @group = Group.find(params[:group_id])
     @cart = Cart.find(params[:cart_id])
     @item = @cart.items.build
   end
@@ -25,18 +23,11 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
+    @group = Group.find(params[:group_id])
     @cart = Cart.find(params[:cart_id])
-    # @item = Item.new(item_params)
-
     @item = @cart.items.create(item_params)
     
-    redirect_to @cart
-
-    # if @item.save
-    #   redirect_to @item, notice: 'Item was successfully created.'
-    # else
-    #   render action: 'new'
-    # end
+    redirect_to group_cart_path(@group, @cart)
   end
 
   # PATCH/PUT /items/1

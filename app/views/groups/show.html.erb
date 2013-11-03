@@ -2,23 +2,31 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @group.owner_id %>
-</p>
+<legend> 
+    <strong>Group Name:</strong>
+    <%= @group.name %>
+</legend> 
+
+<legend> 
+    <strong>Owner:</strong>
+    <%= @group.owner_id %>
+</legend> 
+
 
 <p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
 
-<p>
-    <strong>Members:</strong>
-    <ul>
-        <% for member in @group.members %>
-            <li><%= member.name %></li>
-        <% end %>
-    </ul>
+    <table id="group" class="table table-striped">
+      <tr>
+        <th>Members</th>
+      </tr>
+      <% for member in @group.members %>
+        <tr class="<%= cycle :odd, :even %>">
+          <td><%=h member.name %></td>
+        </tr>
+      <% end %>
+    </table>
+
+
     <% if current_user.id == @group.owner_id %>
         <%= form_for :person do |f| %>
         <div class="field">
@@ -32,5 +40,7 @@
     <% end %>
 </p>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<div class="form-actions">
+    <%= link_to 'Edit', edit_group_path(@group), :class => 'btn' %>
+    <%= link_to 'Cancel', groups_path, :class => 'btn' %>
+</div>
