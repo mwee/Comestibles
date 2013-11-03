@@ -18,7 +18,7 @@ class GroupCartTest < ActiveSupport::TestCase
        assert @group.lists.length == 2, "can have multiple carts"
     end
 
-    test "carts should belong to a group" do
+    test "carts should initially have no group" do
         @group = FactoryGirl.create(:group, name: "unique name")
         @cart = FactoryGirl.create(:cart)
 
@@ -26,12 +26,13 @@ class GroupCartTest < ActiveSupport::TestCase
         puts @cart.group.class
 
         assert @cart.group.nil?, "initially have no groups"
+    end
 
+    test "carts should be able to have associated groups" do
+        @group = FactoryGirl.create(:group, name: "unique name")
+        @cart = FactoryGirl.create(:cart)
         @group_cart = FactoryGirl.create(:group_cart, group_id: @group.id, cart_id: @cart.id)
         
-        @cart.group.reload
         assert @cart.group.name == "unique name", "should map to the correct group" 
-
-        assert false, "test not created yet"
     end
 end

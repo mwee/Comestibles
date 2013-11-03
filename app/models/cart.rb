@@ -1,4 +1,5 @@
 class Cart < ActiveRecord::Base
+	attr_accessible :cart_name
 
 	has_one :group_cart
 	has_one :group, through: :group_cart, source: "group"

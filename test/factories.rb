@@ -12,6 +12,7 @@ FactoryGirl.define do
   factory :group do
     name "Team Awesome!"
     owner_id 0
+    id 0
   end
 
   factory :group_membership do
