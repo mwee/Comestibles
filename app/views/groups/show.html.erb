@@ -17,6 +17,17 @@
             <li><%= member.name %></li>
         <% end %>
     </ul>
+    <% if current_user.id == @group.owner_id %>
+        <%= form_for :person do |f| %>
+        <div class="field">
+            <%= f.label :email, 'Add User by email' %><br>
+            <%= f.text_field :email %>
+        </div>
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+        <% end %>        
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
