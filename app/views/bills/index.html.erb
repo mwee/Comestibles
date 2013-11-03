@@ -15,7 +15,7 @@
       <td><%= bill.amount %></td>
       <td>
         <% if bill.status == 'unpaid' %>
-          <% link_to "Confirm Payment", status_paid_bill_path %>
+          <% link_to "Confirm Payment", status_paid_path(id: @bill.id) %>
         <% elsif bill.status == 'says_paid' %>
           Confirmation Pending
         <% else bill.status == 'confirmed' %>

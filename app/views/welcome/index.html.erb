@@ -8,16 +8,11 @@ Buying groceries is a pain in the ass. Every week. The problem only gets worse w
 
 <% if not current_user %>
 
-<button>
-<%= link_to "Login", login_url %>
-</button>
+	<%= link_to "Login", login_url, :class => 'btn btn-primary' %>
 
 <% else %>
 
-<button>
-<%= link_to "Take me to my comestibles!", carts_url %>
-</button>
-
+	<%= link_to "Take me to my comestibles!", groups_path, :class => 'btn' %>
 
 <% end %>
 

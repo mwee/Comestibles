@@ -42,6 +42,35 @@ ActiveRecord::Schema.define(version: 20131103202402) do
     t.datetime "updated_at"
   end
 
+  create_table "group_carts", id: false, force: true do |t|
+    t.integer "group_id"
+    t.integer "cart_id"
+  end
+
+  create_table "group_memberships", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+  end
+
+  create_table "groups", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: true do |t|
+    t.string   "name"
+    t.decimal  "unit_price"
+    t.integer  "quantity"
+    t.integer  "category_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["cart_id"], name: "index_items_on_cart_id"
+
   create_table "line_items", force: true do |t|
     t.decimal  "unit_price"
     t.integer  "product_id"
@@ -49,6 +78,8 @@ ActiveRecord::Schema.define(version: 20131103202402) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
+    t.string   "name"
   end
 
   create_table "products", force: true do |t|

@@ -17,6 +17,10 @@
         <div class="notice" id="notice"><%= flash[:notice] %></div>
     <% end %>
 
+    <% if flash[:warning] %>
+        <div class="alert" id="alert"><%= flash[:warning] %></div>
+    <% end %>
+
     <% if flash[:error] %>
         <div class="error" id="error"><%= flash[:error] %></div>
     <% end %>
@@ -25,10 +29,7 @@
 <div class="container">
   <div class="row">
     <div class="span9"><%= yield %></div>
-<!--     <div class="span3">
-      <h2>About</h2>
-      <p>This is a test store/cart application that demonstrates how to integrate 2Checkout into a rails application.</p>        
-    </div> -->
+
   </div>
 </div>
 </body>

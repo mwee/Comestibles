@@ -1,0 +1,50 @@
+<%= form_for ([@cart, @cart.items.build]), :html => { :class => 'form-horizontal' } do |f| %>
+
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Item</legend>
+
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :unit_price, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :unit_price, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :quantity, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :quantity, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', @cart, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>
+
+
+
+
+

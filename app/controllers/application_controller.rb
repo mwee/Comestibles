@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 
     private
 
+    def set_group
+      @group = Group.find(params[:id])
+    end
+
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
       return @current_user

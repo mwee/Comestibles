@@ -1,6 +1,13 @@
 # This will guess the User class
 FactoryGirl.define do
   
+  factory :bill do
+    amount 11.0
+    user_id 0
+    cart_id 0
+    status "unpaid"
+  end
+
   factory :user do
     name "John"
     id 0

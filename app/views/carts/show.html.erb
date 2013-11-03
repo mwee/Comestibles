@@ -10,16 +10,17 @@
   <% end %>
 </div>
 
+
 <table id="cart" class="table table-striped">
   <tr>
-    <th>Product</th>
-    <th>Qty</th>
+    <th>Item</th>
+    <th>Qunatity</th>
     <th class="price">Unit Price</th>
     <th class="price">Full Price</th>
   </tr>
-  <% for line_item in @cart.line_items %>
+  <% for line_item in @cart.items %>
     <tr class="<%= cycle :odd, :even %>">
-      <td><%=h line_item.product.name %></td>
+      <td><%=h line_item.name %></td>
       <td class="qty"><%= line_item.quantity %></td>
       <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
       <td class="price"><%= number_to_currency(line_item.full_price) %></td>
@@ -37,21 +38,12 @@
 
   </tr>
 </table>
-<% @params = {'sid' => 1817037, 'mode' => '2CO', 'merchant_order_id' => @cart.id} %>
-<% i=0 %>
-<% for line_item in @cart.line_items %>
-    <% @params['li_'+i.to_s+'_product_id'] = line_item.product.id.to_s %>
-    <% @params['li_'+i.to_s+'_name']       = line_item.product.name %>
-    <% @params['li_'+i.to_s+'_price']      = line_item.product.price %>
-    <% @params['li_'+i.to_s+'_quantity']   = line_item.quantity.to_s %>
-    <% i+=1 %>
-<% end %>
 
-<% if not @cart.finalized%>
-  <div>
-    <%= link_to "Add Products to this Cart", cart_category_url(@cart, 1)  %>
-  </div>
-  <div>
-    <%= button_to 'Finalize this Cart', finalize_cart_path(@cart) %> 
-  </div>
-<% end %>
+
+<div class="form-actions">
+  <% if not @cart.finalized%>
+      <%= link_to "Add Products to this Cart", new_group_cart_item_path(cart_id: @cart.id, group_id: @cart.group.id), :class => 'btn' %>
+      <%= link_to 'Finalize this Cart', finalize_cart_path(@cart), :class => 'btn btn-danger' %> 
+  <% end %>
+  <%= link_to 'Back to Carts', group_carts_path, :class => 'btn' %>
+</div>

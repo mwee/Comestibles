@@ -1,6 +1,6 @@
 <%= render "layouts/navbar" %>
 
-<h1>All Carts</h1>
+<h1><%= @group.name %>'s Carts</h1>
 
 <table class="table table-striped">
   <tr>
@@ -10,11 +10,11 @@
     <th></th>
   </tr>
 
-<% @carts.each do |cart| %>
+<% @group.lists.each do |cart| %>
   <tr>
   
     <td>
-      <%= link_to cart.cart_name, cart %>
+      <%= link_to cart.cart_name, group_cart_url(id: cart.id, group_id: @group.id) %>
     </td>
 
     <td>
@@ -26,7 +26,7 @@
     </td>
 
     <td>
-    <%= link_to 'Delete', cart_path(cart), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+    <%= button_to 'Delete', group_cart_path(id: cart.id, group_id: @group.id), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
     </td>
 
   </tr>
@@ -35,4 +35,8 @@
 
 <br />
 
-<%= link_to 'Create a New Cart', new_cart_path, :class => 'btn btn-primary' %>
+<div class="form-actions">
+  <%= link_to 'Create a New Cart', new_group_cart_path, :class => 'btn btn-primary' %>
+</div>
+
+

@@ -1,0 +1,40 @@
+<%= render "layouts/navbar" %>
+
+<h1><% @group.name %> Lists</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Cart Name</th>
+    <th>Finalized?</th>
+    <th>Actions</th>
+    <th></th>
+  </tr>
+
+<% @group.lists.each do |cart| %>
+  <tr>
+  
+    <td>
+      <%= link_to cart.cart_name, cart %>
+    </td>
+
+    <td>
+      <% if cart.finalized %>
+        Yes
+      <% else %>
+        No
+      <% end %>
+    </td>
+
+    <td>
+    <%= link_to 'Delete', group_cart_path(group_id: @group.id, id: cart.id), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create a New Cart', new_cart_path, :class => 'btn btn-primary' %>
+
+
