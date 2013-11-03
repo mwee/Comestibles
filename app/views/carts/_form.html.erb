@@ -1,6 +1,6 @@
 <%= render "layouts/navbar" %>
 
-<%= form_for(@cart) do |f| %>
+<%= form_for([@group, @group.lists.build]) do |f| %>
   <% if @cart.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:</h2>
@@ -20,7 +20,7 @@
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', carts_path, :class => 'btn' %>
+      <%= link_to 'Cancel', group_cart_path(id: @group.id), :class => 'btn' %>
     </div>
 
 <% end %>

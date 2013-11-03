@@ -1,0 +1,36 @@
+<%= render "layouts/navbar" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @group.owner_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @group.name %>
+</p>
+
+<p>
+    <strong>Members:</strong>
+    <ul>
+        <% for member in @group.members %>
+            <li><%= member.name %></li>
+        <% end %>
+    </ul>
+    <% if current_user.id == @group.owner_id %>
+        <%= form_for :person do |f| %>
+        <div class="field">
+            <%= f.label :email, 'Add User by email' %><br>
+            <%= f.text_field :email %>
+        </div>
+        <div class="actions">
+            <%= f.submit %>
+        </div>
+        <% end %>        
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

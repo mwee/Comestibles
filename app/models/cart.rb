@@ -1,4 +1,8 @@
 class Cart < ActiveRecord::Base
+	attr_accessible :cart_name
+
+	has_one :group_cart
+	has_one :group, through: :group_cart, source: "group"
 	has_many :line_items, dependent: :destroy
 
 	has_many :items, dependent: :destroy

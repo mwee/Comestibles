@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       if @user.save
         user = User.find_by_email(user_params[:email])
         session[:user_id] = user.id
-        format.html { redirect_to carts_url, notice: 'Signed up!' }
+        format.html { redirect_to groups_url, notice: 'Signed up!' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }

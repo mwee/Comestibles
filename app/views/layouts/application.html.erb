@@ -17,6 +17,10 @@
         <div class="notice" id="notice"><%= flash[:notice] %></div>
     <% end %>
 
+    <% if flash[:warning] %>
+        <div class="alert" id="alert"><%= flash[:warning] %></div>
+    <% end %>
+
     <% if flash[:error] %>
         <div class="error" id="error"><%= flash[:error] %></div>
     <% end %>
