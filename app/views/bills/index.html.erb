@@ -1,0 +1,49 @@
+<%= render "layouts/navbar" %>
+
+<h1>Owed Bills</h1>
+
+<% @bills.each do |bill| %>
+    <tr>
+      <td><%= bill.cart_id %></td>
+      <td><%= bill.amount %></td>
+      <td><%= bill.status %></td>
+    </tr>
+  <% end %>
+
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Bill Name</th>
+    <th>Amount</th>
+    <th>Actions</th>
+    <th></th>
+  </tr>
+
+<% @carts.each do |cart| %>
+  <tr>
+  
+    <td>
+      <%= cart.cart_name %>
+    </td>
+
+    <td>
+      <% cart.amount %>
+    </td>
+    <td>
+      <% if not user.paid %>
+        <%= Confirm Payment %>
+      <% else %>
+        <%= Confirmation Pending %>
+      <% end %>
+    </td>
+
+    <td>
+    <%= link_to 'Delete', cart_path(cart), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paid: false
+  owner: MyString
+  amount: 9.99
+
+two:
+  paid: false
+  owner: MyString
+  amount: 9.99

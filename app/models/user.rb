@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :bills, through: :bill_cart, source: :cart
+
   attr_accessible :email, :password, :name, :password_confirmation
 
   #associations
