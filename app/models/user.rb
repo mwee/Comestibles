@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :bills, through: :bill_cart, source: :cart
+  has_many :billcarts, foreign_key: "bill_id"
 
   attr_accessible :email, :password, :name, :password_confirmation
 

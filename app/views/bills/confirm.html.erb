@@ -1,6 +1,6 @@
 <%= render "layouts/navbar" %>
 
-<h1>Owed Bills</h1>
+<h1>Confirm Bills</h1>
 
 <table class="table table-striped">
   <tr>
@@ -10,19 +10,15 @@
   </tr>
 
 <% @bills.each do |bill| %>
+  <% if bill.status == 'says_paid' %>
     <tr>
       <td><%= bill.id %></td>
       <td><%= bill.amount %></td>
       <td>
-        <% if bill.status == 'unpaid' %>
-          <% link_to "Confirm Payment", status_paid_bill_path %>
-        <% elsif bill.status == 'says_paid' %>
-          Confirmation Pending
-        <% else bill.status == 'confirmed' %>
-          Confirmed
-        <% end %>
+          <% link_to "Confirm Payment", status_confirmed_bill_path %>
       </td>
     </tr>
+  <% end %>
 <% end %>
 
 </table>

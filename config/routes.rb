@@ -10,6 +10,7 @@ ExampleStore::Application.routes.draw do
   resources :products
   resources :sessions
   resources :users
+  resources :bills
 
   #copied from railscast 250 - 270
   get "logout" => "sessions#destroy", :as => "logout"
