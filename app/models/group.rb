@@ -9,6 +9,7 @@ class Group < ActiveRecord::Base
     has_many :members, through: :group_memberships, source: "user"
 
     #each group can have many carts
-    has_many :carts
+    has_many :group_carts
+    has_many :lists, through: :group_carts, source: "cart"
 
 end

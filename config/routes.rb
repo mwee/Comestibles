@@ -30,6 +30,7 @@ ExampleStore::Application.routes.draw do
   get 'orders/:id/refund' => 'orders#refund', :as => 'refund'
 
   post 'groups/:id' => 'groups#add_group_member', :as => 'add_group_member'
+  get 'groups/:group_id/carts' => 'groups#carts', :as => 'group_carts'
 
   # root :to => 'categories#show', :id => 1
   # root :to => 'carts#index'
