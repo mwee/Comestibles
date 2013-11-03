@@ -19,7 +19,7 @@ FactoryGirl.define do
     group_id 0
   end
 
-  factory :group_cart, :class => 'GroupCart' do
+  factory :group_cart do
     group_id 0
     cart_id 0
   end
