@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :set_group
 
   def index
     @carts = Cart.all
@@ -20,8 +21,14 @@ class CartsController < ApplicationController
     @cart = Cart.new(params[:cart])
 
     if @cart.save
-      flash[:notice] = "Successfully created a new cart."
-      redirect_to @cart
+      @group_cart = GroupCart.new(cart_id: @cart.id, group_id: @group.id)
+      if @group_cart.save
+        flash[:notice] = "Successfully created a new cart."
+        redirect_to group_carts_url(group_id: @group.id)
+      else 
+        flash[:error] = "Could not create association"
+        render :action => 'new'
+      end  
     else
       render :action => 'new'
     end
@@ -38,7 +45,6 @@ class CartsController < ApplicationController
     redirect_to root_url
   end
 
-
   def finalize
     @cart = Cart.find(params[:id])
     if @cart.update_attribute(:finalized, true)
@@ -47,5 +53,13 @@ class CartsController < ApplicationController
      render @cart
     end 
   end
+
+  private
+
+  def set_group
+    @group = Group.find(params[:group_id])
+  end
+
+
 
 end

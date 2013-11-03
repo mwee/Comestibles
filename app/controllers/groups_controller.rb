@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :carts]
 
   # GET /groups
   def index
@@ -73,6 +73,9 @@ class GroupsController < ApplicationController
         redirect_to :controller => 'groups', action: 'show', :id => params[:id]
       end
     end
+  end
+
+  def cart
   end
 
   private
