@@ -6,10 +6,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href=<%= root_url %>>Comestibles</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "View or Edit Products", products_path %></li>
+        <li> <%= link_to "Comestibles", root_url, :class => 'brand' %> </li>
           <li> <%= link_to "View All Carts", { :controller => "carts", :action => "index" } %></li>
           <li>
             <a href="https://docs.google.com/forms/d/19kJBLD7IyIix-7LOOcgiyWHfBxmfuKL-IhjSrZo1PIo/viewform" target="_blank">Feedback</a>
