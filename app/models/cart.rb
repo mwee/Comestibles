@@ -1,7 +1,7 @@
 class Cart < ActiveRecord::Base
 
-	has_one :group
 	has_one :group_cart
+	has_one :group, through: :group_cart, source: "group"
 	has_many :line_items, dependent: :destroy
 
 	validates :cart_name, 
