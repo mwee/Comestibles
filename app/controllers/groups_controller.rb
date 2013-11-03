@@ -56,10 +56,10 @@ class GroupsController < ApplicationController
     @add_user = User.find_by_email(add_group_member_params[:email])
 
     #Check if the user to add is already in the group    
-    existing_groups = @add_user.joined_groups.map { |g| g.id.to_s }
+    existing_groups = @add_user.joined_groups.map { |g| g.id.to_s } if @add_user
     if @add_user == nil
       flash[:error] = "Could not add member"
-      redirect_to group, :controller => 'group', :id => 3, notice: 'Could not add member.'
+      redirect_to :controller => 'groups', action: 'show', :id => params[:id] 
     elsif existing_groups.include?(params[:id])
       flash[:warning] = "Member already in group"
       redirect_to :controller => 'groups', action: 'show', :id => params[:id] 
@@ -67,10 +67,10 @@ class GroupsController < ApplicationController
       @group_membership = GroupMembership.new(user_id: @add_user.id, group_id: params[:id])
       if @group_membership.save
         flash[:notice] = "Member added."
-       redirect_to :controller => 'groups', action: 'show', :id => params[:id]  
+       redirect_to :controller => 'groups', action: 'show', :id => params[:id]
       else
         flash[:error] = "Could not add member"
-        redirect_to group, :controller => 'group', :id => 3, notice: 'Could not add member.'
+        redirect_to :controller => 'groups', action: 'show', :id => params[:id]
       end
     end
   end
