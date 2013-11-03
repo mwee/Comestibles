@@ -39,11 +39,10 @@
   </tr>
 </table>
 
-
 <div class="form-actions">
   <% if not @cart.finalized%>
-      <%= link_to "Add Products to this Cart", new_cart_item_path(@cart), :class => 'btn' %>
-      <%= link_to 'Finalize this Cart', finalize_cart_path(@cart), :class => 'btn btn-danger' %> 
+      <%= link_to "Add Products to this Cart", new_group_cart_item_path(@group, @cart), :class => 'btn' %>
+      <%= link_to 'Finalize this Cart', finalize_cart_path(@group, @cart), :class => 'btn btn-danger' %> 
   <% end %>
-  <%= link_to 'Back to Carts', carts_path, :class => 'btn' %>
+  <%= link_to 'Back to Carts', group_carts_path, :class => 'btn' %>
 </div>

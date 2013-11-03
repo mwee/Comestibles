@@ -1,16 +1,18 @@
 <%= render "layouts/navbar" %>
 
-<h1>Groups</h1>
-
-<div>Need to get some comestibles?  Choose who you're shopping for and let's get some vitties!</div>
+  <legend> 
+    <h1>Groups</h1> 
+    Need to get some comestibles? <br/> 
+    Choose who you're shopping for and let's get some vitties!
+  </legend>
 
 <br />
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Owner</th>
-      <th>Name</th>
+      <th>Group Owner</th>
+      <th>Group Name</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,10 +23,10 @@
     <% @groups.each do |group| %>
       <tr>
         <td><%= group.owner_id %></td>
-        <td><%= link_to group.name, group_carts_path(group_id: group.id) %></td>
-        <td><%= link_to 'Show Members', group %></td>
-        <td><%= link_to 'Edit Name', edit_group_path(group) %></td>
-        <td><%= link_to 'Delete Group', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to group.name, group_carts_path(group_id: group.id), :class => "lead" %></td>
+        <td><%= link_to 'Show Members', group, :class => 'btn' %></td>
+        <td><%= link_to 'Edit Name', edit_group_path(group), :class => 'btn' %></td>
+        <td><%= button_to 'Delete Group', group, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Group', new_group_path %>
+<div class="form-actions">
+  <%= link_to 'New Group', new_group_path, :class => 'btn' %>
+</div>

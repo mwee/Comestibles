@@ -7,7 +7,6 @@ class CartsController < ApplicationController
 
   def show
     @cart = Cart.find(params[:id])
-    
   end
 
   def new
@@ -40,18 +39,20 @@ class CartsController < ApplicationController
   end
 
   def destroy
+    @group = Group.find(params[:group_id])
     @cart = Cart.find(params[:id])
     @cart.destroy
     flash[:notice] = "Successfully destroyed cart."
-    redirect_to root_url
+    redirect_to group_carts_path(@group, @cart)
   end
 
   def finalize
-    @cart = Cart.find(params[:id])
+    @group = Group.find(params[:group_id])
+    @cart = Cart.find(params[:cart_id])
     if @cart.update_attribute(:finalized, true)
-      redirect_to @cart
+      redirect_to group_carts_path(@group, @cart)
     else
-     render @cart
+     render group_carts_path(@group, @cart)
     end 
   end
 
