@@ -1,26 +1,12 @@
 # Programming
 
-This is a stub for us to document our programming decisions.  This is not required for submission 3.2.
+In this document we describe certain aspects of our programming implementation.  In particular, we give an overview of our unit tests.
 
 ## Basic coding
 
-For now, I'm going to document code and thoughts I used for scaffolding here:
-
-creating the users 
-
-creating the grocery items model:
-rails generate scaffold grocery_item description:string shared:boolean number_needed:integer max_price:decimal
-
-creating the grocery_list model:
-rails generate scaffold grocery_list name:string due:datetime
-
-creating the user's model:
-rails generate scaffold users email:string password_digest:string name:string
-
-
-* note sure if we need anything else on the grocery list
-
 ## Modularity
+
+We separated our code according to the model-view-controller framework and  tried our best to follow the "fat model, skinney controller" paradigm.  We also wrote separate unit tests and used the `factory_girl_rails` gem to separate our test cases from depending on the test database.
 
 ### Code
 
@@ -32,6 +18,12 @@ rails generate scaffold users email:string password_digest:string name:string
 
 ### Unit tests
 
+We implemented unit tests for our models under `test/unit/*.rb`.  The important features that we made sure to cover with unit tests were our associations and any methods that we defined in our models.
+
+We also hand-tested our code.  A lot.
+
 ## Security
+
+We describe our security concerns in detail in the [Design doc](Design.md).
 
 ### Code

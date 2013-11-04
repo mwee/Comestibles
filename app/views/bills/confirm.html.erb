@@ -19,7 +19,7 @@
         <% if bill.status == 'unpaid' %>
           Not Paid
         <% elsif bill.status == 'says_paid' %>
-          <%= link_to "Confirm Payment", status_confirmed_path(id: bill.id), method: :post %>
+          <%= button_to "Confirm Payment", status_confirmed_path(id: bill.id), method: :post, :class => 'btn btn-primary' %>
         <% else %>
           Payment Received
         <% end %>

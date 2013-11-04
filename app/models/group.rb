@@ -12,8 +12,14 @@ class Group < ActiveRecord::Base
     has_many :group_carts
     has_many :lists, through: :group_carts, source: "cart"
 
+<<<<<<< HEAD
     def get_owner_name
     	return User.find(self.owner_id).name
     end
+=======
+	def get_owner_name
+		return User.find(self.owner_id).name
+	end
+>>>>>>> 263d1e7e3b2af26d3595abeb33e233a679c02f98
 
 end
