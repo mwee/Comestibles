@@ -17,7 +17,7 @@
       <td><%= number_with_precision(bill.amount, :precision => 2) %></td>
       <td>
         <% if bill.status == 'unpaid' %>
-          <%= link_to "I've Paid for This", status_paid_path(id: bill.id), method: :post %>
+          <%= button_to "I've Paid for This", status_paid_path(id: bill.id), method: :post, :class => 'btn btn-primary' %>
         <% elsif bill.status == 'says_paid' %>
           Confirmation Pending
         <% else %>
