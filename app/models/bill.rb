@@ -15,6 +15,7 @@ class Bill < ActiveRecord::Base
 
 	def status_confirmed
 		self.status = "confirmed"
+		self.save
 	end
 
 end

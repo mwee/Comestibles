@@ -31,5 +31,7 @@ ExampleStore::Application.routes.draw do
   post 'groups/:id' => 'groups#add_group_member', :as => 'add_group_member'
 
   post 'bills/:id/status_paid' => 'bills#status_paid', :as => 'status_paid'
+  post 'bills/:id/status_confirmed' => 'bills#status_confirmed', :as => "status_confirmed"
 
+  get '/bills_confirm' => 'bills#confirm', :as => 'bills_confirm'
 end

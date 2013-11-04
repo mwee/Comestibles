@@ -9,16 +9,23 @@
     <th>Actions</th>
   </tr>
 
-<% @bills.each do |bill| %>
-  <% if bill.status == 'says_paid' %>
+<% current_user.owed_bills.each do |bill| %>
     <tr>
-      <td><%= bill.id %></td>
-      <td><%= bill.amount %></td>
+      <td><%= bill.cart.cart_name %></td>
+      <td><%= number_with_precision(bill.amount, :precision => 2) %></td>
       <td>
-          <% link_to "Confirm Payment", status_confirmed_bill_path %>
+        <% if bill.status == 'unpaid' %>
+          Not Paid
+        <% elsif bill.status == 'says_paid' %>
+          <%= link_to "Confirm Payment", status_confirmed_path(id: bill.id), method: :post %>
+        <% else %>
+          Payment Received
+        <% end %>
       </td>
     </tr>
-  <% end %>
 <% end %>
 
 </table>
+
+
+
