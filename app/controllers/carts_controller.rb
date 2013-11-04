@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_group
+  before_action :check_group_membership
 
   def index
     @carts = Cart.all
@@ -65,7 +66,6 @@ class CartsController < ApplicationController
   def set_group
     @group = Group.find(params[:group_id])
   end
-
 
 
 end

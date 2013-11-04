@@ -18,4 +18,12 @@ class Bill < ActiveRecord::Base
 		self.save
 	end
 
+	def get_ower_name
+		return User.find(self.user_id).name
+	end
+
+	def get_owed_name
+		return User.find(self.pay_to).name
+	end
+
 end

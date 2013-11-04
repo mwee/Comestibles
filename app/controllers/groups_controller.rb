@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy, :carts]
+  before_action :check_group_membership, only: [:show, :edit, :update, :destroy, :carts]
 
   # GET /groups
   def index
@@ -91,5 +92,15 @@ class GroupsController < ApplicationController
 
     def add_group_member_params
       params.require(:person).permit(:email)
+    end
+
+    def check_group_membership
+      @member = @group.members.select {|m| m.id == current_user.id }
+      if @member.length > 0
+        return true
+      else
+        flash[:error] = "You are not a member of that group"
+        redirect_to groups_url
+      end
     end
 end
