@@ -44,4 +44,15 @@ class ApplicationController < ActionController::Base
     end
     helper_method :require_login
 
+    def check_group_membership
+      @member = @group.members.select {|m| m.id == current_user.id }
+      if @member.length > 0
+        return true
+      else
+        flash[:error] = "You are not a member of that group"
+        redirect_to groups_url
+      end
+    end
+    helper_method :check_group_membership
+
 end
