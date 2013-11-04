@@ -51,25 +51,11 @@ Enables:
 
 ### Key Concepts
 
-* Grocery Getter: the person who purchases the groceries and foots the total bill at the store
-
-* Grocery Desirer: Has an name and password. There are two types of buyers:
-    * Individual: the person who pays the grocery getter for an item he or she ordered for individual use or consumption
-    * Group: expenses from some items (such as laundry detergent) are shared evenly among the entire group
-
-* Grocery List: contains many Grocery items
-
-* Grocery Items
-    * Cost
-    * Name
-    * Description
-    * Owner (including shared)
-    * Multiplicity
-
-* Purchase and Payment verification: what was requested, what was purchased, what was paid for, what payments have been confirmed
-* option to pay offline or through Comestible with Paypal API
-
-* Nagging: auto-nag people to actually buy and pay for groceries
+* Users: people who desire their lives to be made easier by splitting shared expenses of items
+* Groups: allows users to organize their spending lives along the lines of groups they share expenses with
+* Carts: allows groups to create more carts (that become finalized when items are bought) as time goes on
+* Items: the items that are desired are put into respective carts including their name, cost, and multiplicity
+* Bills: splits shared expenses evenly across group, track and confirm payments of shared expenses
 
 ### Data Model (Lead: Michael)
 
@@ -162,18 +148,9 @@ List of problems to resolve in concepts, behaviors or implementation:
     * We could have created a groups model and associated exactly one cart, creating the need for another object to include in the data model.
     * Instead we decided to have carts be standalone and allow
         * Separation functionality to be completed in the final product (MVP functionality allows users to access all carts)
-<<<<<<< HEAD
 * Adding products, prices, and items
-    * Could have users add items to a list and the person who buys groceries add all the prices at once
-        * Messy, it’s nicer to have a well-defined set of products that users can define and then add to carts set
-    * We chose to have users create ‘Products’ with prices that they could add as items to different lists 
-=======
-* Ading products, prices, and items
-    * We could to have users create ‘Products’ with prices that they could add as items to different lists 
-    * We chose to have users add items to a list and the person who buys groceries add all the prices at once
-        * Messy but easier to use
->>>>>>> 298e8df6177ae0d3f46c7a40eabe8f3df5f734cc
-        * Cleaner interface, cleaner conceptually to have a bank of defined products that people can add to lists
+    * We could to have users create pre-defined ‘Products’ with prices that they could add as items to different lists 
+    * We chose instead to have users add items and prices to a list which becomes conceptually simpler, and keeps the list of pre-defined products from getting too large, eventually requiring a search feature
 * Carts need to be able to be finalized at some point, for example when the grocery runner gets groceries or the transaction is completed
     * Could create another object that’s a finalized cart
     * But we lock it by making it so that nothing in the cart can be edited when it is finalized 
