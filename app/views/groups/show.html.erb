@@ -1,15 +1,11 @@
 <%= render "layouts/navbar" %>
 
-<p id="notice"><%= notice %></p>
-
 <legend> 
     <strong>Group Name:</strong>
-    <%= @group.name %>
-</legend> 
-
-<legend> 
+    <h1><%= @group.name %></h1>
+    <!-- <br /> -->
     <strong>Owner:</strong>
-    <%= @group.owner_id %>
+    <%= User.find(@group.owner_id).name %>
 </legend> 
 
 

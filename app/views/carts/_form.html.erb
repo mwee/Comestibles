@@ -18,10 +18,10 @@
     <%= f.text_field :cart_name %><br />
   </div>
 
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', group_cart_path(id: @group.id), :class => 'btn' %>
-    </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', group_cart_path(id: @group.id), :class => 'btn' %>
+  </div>
 
 <% end %>
 
