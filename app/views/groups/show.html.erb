@@ -3,15 +3,15 @@
 <legend> 
     <strong>Group Name:</strong>
     <h1><%= @group.name %></h1>
-    <!-- <br /> -->
     <strong>Owner:</strong>
     <%= @group.get_owner_name %>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 263d1e7e3b2af26d3595abeb33e233a679c02f98
 </legend> 
 
-
 <p>
-
     <table id="group" class="table table-striped">
       <tr>
         <th>Members</th>
@@ -22,7 +22,6 @@
         </tr>
       <% end %>
     </table>
-
 
     <% if current_user.id == @group.owner_id %>
         <%= form_for :person do |f| %>
@@ -39,5 +38,5 @@
 
 <div class="form-actions">
     <%= link_to 'Edit', edit_group_path(@group), :class => 'btn' %>
-    <%= link_to 'Cancel', groups_path, :class => 'btn' %>
+    <%= link_to 'Back', groups_path, :class => 'btn' %>
 </div>

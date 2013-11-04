@@ -6,7 +6,6 @@ ExampleStore::Application.routes.draw do
     end
   end
 
-  resources :orders
   resources :sessions
   resources :users
   resources :bills
@@ -20,7 +19,6 @@ ExampleStore::Application.routes.draw do
   root :to => "welcome#index"
 
   get "/groups/:group_id/carts/:cart_id/finalize" => "carts#finalize", :as => "finalize_cart"
-
 
   get '/return'=>'carts#return'
 

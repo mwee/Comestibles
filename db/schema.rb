@@ -11,12 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103202402) do
-
-  create_table "bill_carts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20131104020700) do
 
   create_table "bills", force: true do |t|
     t.decimal  "amount"
@@ -36,12 +31,15 @@ ActiveRecord::Schema.define(version: 20131103202402) do
     t.string   "cart_name"
   end
 
+<<<<<<< HEAD
+=======
   create_table "categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+>>>>>>> 263d1e7e3b2af26d3595abeb33e233a679c02f98
   create_table "group_carts", id: false, force: true do |t|
     t.integer "group_id"
     t.integer "cart_id"
@@ -63,7 +61,6 @@ ActiveRecord::Schema.define(version: 20131103202402) do
     t.string   "name"
     t.decimal  "unit_price"
     t.integer  "quantity"
-    t.integer  "category_id"
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,6 +68,8 @@ ActiveRecord::Schema.define(version: 20131103202402) do
 
   add_index "items", ["cart_id"], name: "index_items_on_cart_id"
 
+<<<<<<< HEAD
+=======
   create_table "line_items", force: true do |t|
     t.decimal  "unit_price"
     t.integer  "product_id"
@@ -100,6 +99,7 @@ ActiveRecord::Schema.define(version: 20131103202402) do
     t.integer  "category_id"
   end
 
+>>>>>>> 263d1e7e3b2af26d3595abeb33e233a679c02f98
   create_table "users", force: true do |t|
     t.string   "email"
     t.string   "password_digest"
