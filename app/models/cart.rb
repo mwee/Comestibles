@@ -1,4 +1,5 @@
 class Cart < ActiveRecord::Base
+	has_many :bills
 	attr_accessible :cart_name
 
 	has_one :group_cart

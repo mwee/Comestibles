@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-	before_action :set_bill, only: [:create, :show, :edit, :update, :destroy, :status_paid]
+	before_action :set_bill, only: [:create, :show, :edit, :update, :destroy, :status_paid, :status_confirmed]
 
 	def index
 		@bills = current_user.bills
@@ -23,8 +23,16 @@ class BillsController < ApplicationController
 	    redirect_to root_url
 	end
 
+	def confirm
+	end
+
 	def status_paid
 		@bill.status_paid
+		redirect_to bills_path
+	end
+
+	def status_confirmed
+		@bill.status_confirmed
 		redirect_to bills_path
 	end
 

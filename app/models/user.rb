@@ -26,4 +26,19 @@ class User < ActiveRecord::Base
     return User.all.size
   end
 
+  def owed_bills
+    to_return = []
+    self.joined_groups.each do |group|
+      group.lists.each do |cart|
+        cart.bills.each do |bill|
+          if bill.pay_to.to_s == self.id.to_s
+            to_return.push(bill)
+          end
+        end
+      end
+    end
+    return to_return
+  end
 end
+
+
