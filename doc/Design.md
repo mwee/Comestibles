@@ -65,12 +65,27 @@ Enables:
 
 ### Feature Descriptions
 
-* Users can create groups to separate out the people in their lives who they share expenses with
-* Groups can have multiple carts for multiple shopping lists as time passes
-* Groups can finalize lists when the items are bought
-* Group owner and administrator can confirm proper payments from shared expenses
-* Bills are divided evenly among users and the app tracks payments to the group owner 
-* Users can view payments due and charges due
+## Sign-up, Log-in, Log-out
+* New users can create accounts. Returning users can sign-in. Site access and functionality is restricted only to signed in users with proper privileges (for instance, only group members can add items to a group’s carts)
+
+## Creating groups and Adding members to groups
+* Any sign-in user can create a new group and add users to it. The person who creates the group is the “group owner” and has the responsibility to confirm payments.
+
+## Creating shopping cart 
+* Any member of a group can create a new cart that all members of the group have access to.
+
+## Adding items to a shopping cart 
+* Any group member can add items to any of the group’s carts that have not yet been marked as finalized.
+
+## Finalizing a shopping cart
+* Any non-finalized shopping cart can be marked as finalized. Once a cart is marked as finalized, no new items can be added to it.
+
+## Diving the bill
+* Once a cart is finalized, the total bill for all the items in the cart is split evenly among the group members. Users can view all bill they owe as well as bills that are owed to them.
+
+## Requesting repayment confirmation and Confirming repayment
+* Members of the group can request repayment for bills they owe. Group owner can confirm repayment requests. 
+
 
 ### Security Concerns
 
