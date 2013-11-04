@@ -12,6 +12,10 @@
           <li> <%= link_to "View All Groups", { :controller => "groups", :action => "index" } %></li>
           <li>
             <a href="https://docs.google.com/forms/d/19kJBLD7IyIix-7LOOcgiyWHfBxmfuKL-IhjSrZo1PIo/viewform" target="_blank">Feedback</a>
+          <li><%= link_to "Bills I Owe", bills_url %>
+          </li>
+          <li><%= link_to "Bills Owed To Me", bills_confirm_path %>
+          </li>
           <li>
             <%= link_to "Logout", logout_url %>
           </li>

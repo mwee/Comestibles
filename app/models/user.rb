@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     self.joined_groups.each do |group|
       group.lists.each do |cart|
         cart.bills.each do |bill|
-          if bill.pay_to.to_s == self.id.to_s
+          if bill.pay_to.to_s == self.id.to_s and not bill.user_id == self.id
             to_return.push(bill)
           end
         end
@@ -39,6 +39,11 @@ class User < ActiveRecord::Base
     end
     return to_return
   end
+
+  def get_bills
+    return self.bills.select{|bill| bill.user_id != self.id}
+  end
 end
+
 
 

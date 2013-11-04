@@ -2,7 +2,7 @@ class BillsController < ApplicationController
 	before_action :set_bill, only: [:create, :show, :edit, :update, :destroy, :status_paid, :status_confirmed]
 
 	def index
-		@bills = current_user.bills
+		@bills = current_user.get_bills
 	end
 
 	def create

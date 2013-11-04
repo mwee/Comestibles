@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <tr>
     <th>Bill Name</th>
+    <th>Owed By</th>
     <th>Amount</th>
     <th>Actions</th>
   </tr>
@@ -12,6 +13,7 @@
 <% current_user.owed_bills.each do |bill| %>
     <tr>
       <td><%= bill.cart.cart_name %></td>
+      <td><%= bill.get_ower_name %> </td>
       <td><%= number_with_precision(bill.amount, :precision => 2) %></td>
       <td>
         <% if bill.status == 'unpaid' %>
@@ -26,6 +28,4 @@
 <% end %>
 
 </table>
-
-
 
