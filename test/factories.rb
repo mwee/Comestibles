@@ -42,7 +42,6 @@ FactoryGirl.define do
     cart_name "test cart"
   end
 
-
   factory :item do
     id 0
     name "test item"
