@@ -1,0 +1,24 @@
+<%= render "layouts/navbar" %>
+
+<h1>Confirm Bills</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Bill Name</th>
+    <th>Amount</th>
+    <th>Actions</th>
+  </tr>
+
+<% @bills.each do |bill| %>
+  <% if bill.status == 'says_paid' %>
+    <tr>
+      <td><%= bill.id %></td>
+      <td><%= bill.amount %></td>
+      <td>
+          <% link_to "Confirm Payment", status_confirmed_bill_path %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>
+
+</table>

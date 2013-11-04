@@ -9,6 +9,7 @@ ExampleStore::Application.routes.draw do
   resources :orders
   resources :sessions
   resources :users
+  resources :bills
 
   #copied from railscast 250 - 270
   get "logout" => "sessions#destroy", :as => "logout"
@@ -28,5 +29,7 @@ ExampleStore::Application.routes.draw do
   get 'orders/:id/refund' => 'orders#refund', :as => 'refund'
 
   post 'groups/:id' => 'groups#add_group_member', :as => 'add_group_member'
+
+  post 'bills/:id/status_paid' => 'bills#status_paid', :as => 'status_paid'
 
 end

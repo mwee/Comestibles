@@ -50,6 +50,10 @@ class CartsController < ApplicationController
     @group = Group.find(params[:group_id])
     @cart = Cart.find(params[:cart_id])
     if @cart.update_attribute(:finalized, true)
+      @cart.group.members.each do |ower|
+        Bill.create(user_id: ower.id, cart_id: @cart.id, status: "unpaid", amount: (@cart.total_price / @cart.group.members.length))
+      end
+
       redirect_to group_carts_path(@group, @cart)
     else
      render group_carts_path(@group, @cart)

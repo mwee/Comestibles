@@ -1,0 +1,28 @@
+<%= render "layouts/navbar" %>
+
+<h1>Owed Bills</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Bill Name</th>
+    <th>Amount</th>
+    <th>Actions</th>
+  </tr>
+
+<% @bills.each do |bill| %>
+    <tr>
+      <td><%= bill.id %></td>
+      <td><%= bill.amount %></td>
+      <td>
+        <% if bill.status == 'unpaid' %>
+          <%= link_to "Confirm Payment", status_paid_path(id: bill.id), method: :post %>
+        <% elsif bill.status == 'says_paid' %>
+          Confirmation Pending
+        <% else %>
+          Confirmed
+        <% end %>
+      </td>
+    </tr>
+<% end %>
+
+</table>

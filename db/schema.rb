@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103165443) do
+ActiveRecord::Schema.define(version: 20131103202402) do
+
+  create_table "bill_carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bills", force: true do |t|
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cart_id"
+    t.string   "status"
+    t.integer  "user_id"
+  end
 
   create_table "carts", force: true do |t|
     t.datetime "purchased_at"

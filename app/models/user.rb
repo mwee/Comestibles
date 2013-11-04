@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :bills
+  has_many :billcarts, foreign_key: "bill_id"
+
   attr_accessible :email, :password, :name, :password_confirmation
 
   #associations
