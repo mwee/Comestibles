@@ -14,10 +14,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <legend>Name</legend>
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', groups_path, :class => 'btn' %>
   </div>
+
 <% end %>
