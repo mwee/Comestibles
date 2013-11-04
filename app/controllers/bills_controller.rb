@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-	before_action :set_bill
+	before_action :set_bill, only: [:create, :show, :edit, :update, :destroy, :status_paid]
 
 	def index
 		@bills = current_user.bills
@@ -25,6 +25,7 @@ class BillsController < ApplicationController
 
 	def status_paid
 		@bill.status_paid
+		redirect_to bills_path
 	end
 
 	private
