@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(version: 20131104020700) do
     t.string   "cart_name"
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "group_carts", id: false, force: true do |t|
     t.integer "group_id"
     t.integer "cart_id"
@@ -65,17 +59,6 @@ ActiveRecord::Schema.define(version: 20131104020700) do
 
   add_index "items", ["cart_id"], name: "index_items_on_cart_id"
 
-  create_table "line_items", force: true do |t|
-    t.decimal  "unit_price"
-    t.integer  "product_id"
-    t.integer  "cart_id"
-    t.integer  "quantity"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
-    t.string   "name"
-  end
-
   create_table "orders", force: true do |t|
     t.decimal  "total"
     t.datetime "created_at",       null: false
@@ -83,15 +66,6 @@ ActiveRecord::Schema.define(version: 20131104020700) do
     t.string   "card_holder_name"
     t.string   "order_number"
     t.string   "status"
-  end
-
-  create_table "products", force: true do |t|
-    t.string   "name"
-    t.decimal  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "description"
-    t.integer  "category_id"
   end
 
   create_table "users", force: true do |t|
