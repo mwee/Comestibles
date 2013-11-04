@@ -79,17 +79,12 @@ Enables:
 
 ### Feature Descriptions
 
-* Groups: We use groups to manage sets of users.
-* grocery lists -> have an active grocery list
-* add grocery items to active grocery list -> shared and individual
-* grocery getter confirms list, items marked as shared or individual
-* finalize list when grocery getter goes to the store -- no more modifications allowed
-* grocery getter confirms what was bought and the price
-* application divides bill according to shared/individual items
-* show grocery users “bill” and who owes what
-* track getting reimbursed
-* push unbought items into next active list
-* each grocery user can view payments due and charges due
+* Users can create groups to separate out the people in their lives who they share expenses with
+* Groups can have multiple carts for multiple shopping lists as time passes
+* Groups can finalize lists when the items are bought
+* Group owner and administrator can confirm proper payments from shared expenses
+* Bills are divided evenly among users and the app tracks payments to the group owner 
+* Users can view payments due and charges due
 
 ### Security Concerns
 
@@ -167,10 +162,17 @@ List of problems to resolve in concepts, behaviors or implementation:
     * We could have created a groups model and associated exactly one cart, creating the need for another object to include in the data model.
     * Instead we decided to have carts be standalone and allow
         * Separation functionality to be completed in the final product (MVP functionality allows users to access all carts)
+<<<<<<< HEAD
+* Adding products, prices, and items
+    * Could have users add items to a list and the person who buys groceries add all the prices at once
+        * Messy, it’s nicer to have a well-defined set of products that users can define and then add to carts set
+    * We chose to have users create ‘Products’ with prices that they could add as items to different lists 
+=======
 * Ading products, prices, and items
     * We could to have users create ‘Products’ with prices that they could add as items to different lists 
     * We chose to have users add items to a list and the person who buys groceries add all the prices at once
         * Messy but easier to use
+>>>>>>> 298e8df6177ae0d3f46c7a40eabe8f3df5f734cc
         * Cleaner interface, cleaner conceptually to have a bank of defined products that people can add to lists
 * Carts need to be able to be finalized at some point, for example when the grocery runner gets groceries or the transaction is completed
     * Could create another object that’s a finalized cart

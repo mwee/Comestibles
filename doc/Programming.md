@@ -18,9 +18,9 @@ We separated our code according to the model-view-controller framework and  trie
 
 ### Unit tests
 
-We implemented unit tests for our models under `test/unit/*.rb`.  The important features that we made sure to cover with unit tests were our associations and any methods that we defined in our models.
+We implemented unit tests for our models under `test/unit/*.rb`. The important features that we made sure to cover with unit tests were our associations and any methods that we defined in our models. We made sure that these were tested for proper behaviour and output.
 
-We also hand-tested our code.  A lot.
+We also hand-tested our code. A lot.
 
 ## Security
 
