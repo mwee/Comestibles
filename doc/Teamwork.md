@@ -1,6 +1,6 @@
 # Teamwork
 
-This is a stub for the Teamwork writeup.  We have documented our MVP choices and decisions here.
+This is our teamwork write-up.  It has not been updated since submission 3.2
 
 ## Plan
 
@@ -15,7 +15,7 @@ Under the current implementation, anyone with an access to the url has full acce
 [![MVP Data Model](diagrams/MVP-Data-Model.png)](diagrams/MVP-Data-Model.png)
 
 
-Key differences (compared to our [original data model](diagrams/Data-Model.png):
+Key differences (compared to our [original data model](diagrams/Original-Data-Model.png):
 
 * Got rid of ‘Shared grocery item’ subclass as well as ‘Group’ concept
 * Renamed ‘Grocery Desirer’ to ‘User’
@@ -85,4 +85,4 @@ List of problems to resolve in concepts, behaviors or implementation:
 
 #### Acknowledgements
 
-* During implementation we referred to code and cart implementation of 2checkouthttps://github.com/craigchristenson/2checkout-rails-integration
+* During implementation we referred to code and cart implementation of [2checkout](https://github.com/craigchristenson/2checkout-rails-integration)
