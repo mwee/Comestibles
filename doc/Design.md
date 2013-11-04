@@ -161,20 +161,19 @@ List of problems to resolve in concepts, behaviors or implementation:
 
 * Separating carts and corresponding lists for different groups
     * We could have created a groups model and associated exactly one cart, creating the need for another object to include in the data model.
-    * Instead we decided to have carts be standalone and allow
-        * Separation functionality to be completed in the final product (MVP functionality allows users to access all carts)
+    * Instead we decided to have carts be standalone and allow separation of functionality to be completed in the final product (MVP functionality allows users to access all carts)
 * Adding products, prices, and items
     * We could to have users create pre-defined ‘Products’ with prices that they could add as items to different lists 
     * We chose instead to have users add items and prices to a list which becomes conceptually simpler, and keeps the list of pre-defined products from getting too large, eventually requiring a search feature
-* Carts need to be able to be finalized at some point, for example when the grocery runner gets groceries or the transaction is completed
-    * Could create another object that’s a finalized cart
-    * But we lock it by making it so that nothing in the cart can be edited when it is finalized 
+* Carts need to be able to be finalized at some point, for example when the grocery shopper gets groceries or the transaction is completed
+    * We could have subclassed another object that is a finalized cart
+    * But instead, we lock it by making it so that nothing in the cart can be edited when it is finalized 
 * Splitting bill across the users
     * People often need to split bills when buying something like groceries and we wanted there to be a simple way to share costs
     * The tabulation is then simple arithmetic across each cart when it is finalized
     * For who pays the bill, we currently assume the owner of the group paid the bill.  We made this choice in the interest of expediency.
 * Creating user logins
-    * User login and session functionality was added after we completed the core cart and product functionality
+    * User login and session functionality were added after we completed the core cart and product functionality
     * Sessions and login could be done in a parallel manner to our application, but we decided to integrate it on every page for usability and cleanliness of flow
 * We abstracted away the core of our application into a cart and an item. We needed a container to hold actual things to buy and separate between groups (the “Cart”), as well as the objects actually listed in these containers (an “Item”).
 * We could have elaborate, predefined "Categories" and "Products."  This would may make finding specific products easier; however, we decided that the UX impairment was not worth these features.
