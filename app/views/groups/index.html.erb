@@ -22,7 +22,7 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.owner_id %></td>
+        <td><%= group.get_owner_name %></td>
         <td><%= link_to group.name, group_carts_path(group_id: group.id), :class => "lead" %></td>
         <td><%= link_to 'Show Members', group, :class => 'btn' %></td>
         <td><%= link_to 'Edit Name', edit_group_path(group), :class => 'btn' %></td>
