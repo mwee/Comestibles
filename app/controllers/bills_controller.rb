@@ -33,7 +33,7 @@ class BillsController < ApplicationController
 
 	def status_confirmed
 		@bill.status_confirmed
-		redirect_to bills_path
+		redirect_to bills_confirm_path
 	end
 
 	private

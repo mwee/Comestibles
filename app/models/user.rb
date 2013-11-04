@@ -41,9 +41,6 @@ class User < ActiveRecord::Base
   end
 
   def get_bills
-    return self.bills.select{|bill| bill.user_id != self.id}
+    return self.bills.select{|bill| bill.user_id != bill.pay_to}
   end
 end
-
-
-
