@@ -28,7 +28,7 @@ Other possible names: victuals, vittles
 
 ### Context Diagram (Lead: Michael)
 
-[![Context Diagram](diagrams/Context-Diagram.png)](diagrams/Context-Diagram.png)
+[![Context Diagram](diagrams/New-Context-Diagram.png)](diagrams/New-Context-Diagram.png)
 
 Who:
 
@@ -73,14 +73,13 @@ Enables:
 
 ### Data Model (Lead: Michael)
 
-[![Data model](diagrams/Data-Model.png)](diagrams/Data-model.png)
+[![Data model](diagrams/New-Data-Model.png)](diagrams/New-Data-Model.png)
 
 ## Behavior
 
 ### Feature Descriptions
 
-* sign-up, log-in, sign-out functionality
-* group memberships, group creation, manage memberships in groups
+* Groups: We use groups to manage sets of users.
 * grocery lists -> have an active grocery list
 * add grocery items to active grocery list -> shared and individual
 * grocery getter confirms list, items marked as shared or individual
@@ -169,22 +168,22 @@ List of problems to resolve in concepts, behaviors or implementation:
     * Instead we decided to have carts be standalone and allow
         * Separation functionality to be completed in the final product (MVP functionality allows users to access all carts)
 * Ading products, prices, and items
-    * Could have users add items to a list and the person who buys groceries add all the prices at once
-        * Messy, it’s nicer to have a well-defined set of products that users can define and then add to carts set
-    * We chose to have users create ‘Products’ with prices that they could add as items to different lists 
+    * We could to have users create ‘Products’ with prices that they could add as items to different lists 
+    * We chose to have users add items to a list and the person who buys groceries add all the prices at once
+        * Messy but easier to use
         * Cleaner interface, cleaner conceptually to have a bank of defined products that people can add to lists
 * Carts need to be able to be finalized at some point, for example when the grocery runner gets groceries or the transaction is completed
     * Could create another object that’s a finalized cart
     * But we lock it by making it so that nothing in the cart can be edited when it is finalized 
 * Splitting bill across the users
-    * People often need to split bills when buying something like groceries and we wanted there to be a way for users to distinguish between personal items and items split between the group
-    * We could have solved this by having a flag in the Item model that tells us whether it is shared or not, but we decided to implement this with an object so that we could have greater freedom with what to do with it, for example being able to have a view by category within a list.
+    * People often need to split bills when buying something like groceries and we wanted there to be a simple way to share costs
     * The tabulation is then simple arithmetic across each cart when it is finalized
+    * For who pays the bill, we currently assume the owner of the group paid the bill.  We made this choice in the interest of expediency.
 * Creating user logins
     * User login and session functionality was added after we completed the core cart and product functionality
     * Sessions and login could be done in a parallel manner to our application, but we decided to integrate it on every page for usability and cleanliness of flow
-* We abstracted away the core of our application into a cart, a product, and an item. We made the design decision for users to have a list of products to choose from when adding to a cart to make the application more consistent. This became the “Product” model. We needed a container to hold actual things to buy and separate between groups (the “Cart”), as well as the objects actually listed in these containers (an “Item”).
-* In the schema design, we currently have “Categories” that Products are classified under. In the current MVP, we classify each product as belonging to the category “1”, which may seem to make the classification superfluous. We chose this design to facilitate our final implementation which will allow products to be classified as Shared or Individual.
-* For the MVP, our schema  is relatively unsophisticated and may seem simplistic. Indeed, it lacks much of the inter-data relationships that we plan to implement for our final version so that the web application is useful to a wider audience that a single “focus group”. Therefore, in our final version, there will be more associations as we implement restrictions and invitations to carts. We believe our MVP schema provide an excellent starting point for this.
-
-Paring down the features
+* We abstracted away the core of our application into a cart and an item. We needed a container to hold actual things to buy and separate between groups (the “Cart”), as well as the objects actually listed in these containers (an “Item”).
+* We could have elaborate, predefined "Categories" and "Products."  This would may make finding specific products easier; however, we decided that the UX impairment was not worth these features.
+* We had mutliple options for how to implement our data model
+    * We chose to use connecting sets `group_memberships` and `group_carts`
+    * We could have used Rail's has_and_belongs_to_many association, however we wanted the capability to extend the intermediate connecting set with additional methods and to more thoroughly test our application.
