@@ -73,7 +73,7 @@ Enables:
 
 ### Data Model (Lead: Michael)
 
-[![Data model](diagrams/Data-Model.png)](diagrams/Data-model.png)
+[![Data model](diagrams/Data-Model.png)](diagrams/New-Data-model.png)
 
 ## Behavior
 
@@ -168,7 +168,7 @@ List of problems to resolve in concepts, behaviors or implementation:
     * We could have created a groups model and associated exactly one cart, creating the need for another object to include in the data model.
     * Instead we decided to have carts be standalone and allow
         * Separation functionality to be completed in the final product (MVP functionality allows users to access all carts)
-* Ading products, prices, and items
+* Adding products, prices, and items
     * Could have users add items to a list and the person who buys groceries add all the prices at once
         * Messy, it’s nicer to have a well-defined set of products that users can define and then add to carts set
     * We chose to have users create ‘Products’ with prices that they could add as items to different lists 
