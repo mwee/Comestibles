@@ -94,14 +94,34 @@ Enables:
 
 ### Security Concerns
 
-Real security:
+#### Requirements
+* Only members of a group can see any of the groups carts
+* Only members of a group can see items in that cart.
 
-* authentication
+#### Risks
+* Friends might be curious about what other group's grocery lists look like.
+* Dishonest users may claim that they have paid for items that they haven't actually paid for.
+* Spammers may try to join groups and add spam items to the group's carts.
+* Hackers may try to steal users's login information.
 
-Misuse:
-* people misidentifying items as shared
-* getter lying about prices
-* buyers not reimbursing getter
+#### Threat model
+* We can assume that dishonest users are very likely.
+* We assume that spammers are very likely.
+* We can assume that hackers who are trying to steal basic credentials or who are attempting to do XSS/CSRF attacks are very likely.
+* We assume that there is no interest from sophisticated hackers because we do not store important user information and no money exchanges hands in our system.
+
+#### Mitigation
+* To mitigate against curious friends or dishonest users
+    * We verify that a user is logged in before they can access anything other than the login or create new account screen.
+    * We verify that a user is a member of a group before they can see any information about that group.
+    * We have a two step verification process to confirm that someone has paid for a good: first they claim they have paid, and then the purchaser verifies that they have paid.
+* To mitigate against spammers, we made it so that users cannot join arbitrary groups; only a group's creator can add group members.
+* To mitigate against hackers
+    * We use ssl (in production).
+    * We store salted and hashed passwords (using bcrypt).
+    * We use Rail's built in protection against XSS (and we never use Rail's .html_safe or .raw methods)
+    * To prevent database attacks we use Rail's ORM to access our database and never use SQL string manipulation.
+    * We are using Rail's built in protection against CSRF
 
 ### User Interface
 
