@@ -11,18 +11,19 @@
 
 <% @bills.each do |bill| %>
     <tr>
-      <td><%= bill.id %></td>
-      <td><%= bill.amount %></td>
+      <td><%= bill.cart.cart_name %></td>
+      <td><%= number_with_precision(bill.amount, :precision => 2) %></td>
       <td>
         <% if bill.status == 'unpaid' %>
-          <%= link_to "Confirm Payment", status_paid_path(id: bill.id), method: :post %>
+          <%= link_to "I've Paid for This", status_paid_path(id: bill.id), method: :post %>
         <% elsif bill.status == 'says_paid' %>
           Confirmation Pending
         <% else %>
-          Confirmed
+          Payment Confirmed
         <% end %>
       </td>
     </tr>
 <% end %>
 
 </table>
+  
