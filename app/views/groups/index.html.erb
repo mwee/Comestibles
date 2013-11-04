@@ -1,10 +1,10 @@
 <%= render "layouts/navbar" %>
 
-  <legend> 
-    <h1>Groups</h1> 
-    Need to get some comestibles? <br/> 
-    Choose who you're shopping for and let's get some vitties!
-  </legend>
+<legend> 
+  <h1>Groups</h1> 
+  Need to get some comestibles? <br/> 
+  Choose who you're shopping for and let's get some vitties!
+</legend>
 
 <br />
 
@@ -22,7 +22,7 @@
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.owner_id %></td>
+        <td><%= group.get_owner_name %></td>
         <td><%= link_to group.name, group_carts_path(group_id: group.id), :class => "lead" %></td>
         <td><%= link_to 'Show Members', group, :class => 'btn' %></td>
         <td><%= link_to 'Edit Name', edit_group_path(group), :class => 'btn' %></td>

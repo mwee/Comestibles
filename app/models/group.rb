@@ -12,4 +12,8 @@ class Group < ActiveRecord::Base
     has_many :group_carts
     has_many :lists, through: :group_carts, source: "cart"
 
+    def get_owner_name
+    	return User.find(self.owner_id).name
+    end
+
 end

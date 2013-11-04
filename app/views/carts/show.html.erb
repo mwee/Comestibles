@@ -2,14 +2,13 @@
 
 <h1> <%=@cart.cart_name%> </h1>
 
-<div class="finalized" colspan="4">
+<legend> 
   <% if @cart.finalized%>
-    <h3>This cart is finalized, no more items can be added</h3>
+    This cart is finalized, no more items can be added
   <% else %>
-    <h3>This cart is not yet finalized, you can keep adding items to it</h3>
+    This cart is not yet finalized, you can keep adding items to it
   <% end %>
-</div>
-
+</legend> 
 
 <table id="cart" class="table table-striped">
   <tr>
@@ -33,7 +32,7 @@
     </td>
 
     <td class="amount owed" colspan="4">
-      Amount each user owes: <%= number_to_currency @cart.total_price / @cart.group.members.length %>
+      Amount each member owes: <%= number_to_currency @cart.total_price / @cart.group.members.length %>
     </td>
 
   </tr>
