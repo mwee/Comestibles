@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, :set_group
 
   # GET /items
   def index
@@ -12,8 +13,6 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @group = Group.find(params[:group_id])
-    @cart = Cart.find(params[:cart_id])
     @item = @cart.items.build
   end
 
@@ -23,10 +22,7 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-    @group = Group.find(params[:group_id])
-    @cart = Cart.find(params[:cart_id])
     @item = @cart.items.create(item_params)
-    
     redirect_to group_cart_path(@group, @cart)
   end
 
@@ -49,6 +45,14 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    end
+
+    def set_cart
+      @cart = Cart.find(params[:cart_id])
+    end
+
+    def set_group
+      @group = Group.find(params[:group_id])
     end
 
     # Only allow a trusted parameter "white list" through.

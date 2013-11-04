@@ -4,7 +4,6 @@ class Item < ActiveRecord::Base
 
 	attr_accessible :cart_id, :name, :quantity, :unit_price
 
-
 	def full_price
 		unit_price * quantity
 	end
