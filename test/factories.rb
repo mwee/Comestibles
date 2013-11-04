@@ -42,4 +42,15 @@ FactoryGirl.define do
     cart_name "test cart"
   end
 
+
+  factory :item do
+    id 0
+    name "test item"
+    unit_price 5
+    quantity 3
+    cart_id 0
+    created_at '2012-05-19 09:33:56'
+    updated_at '2012-05-19 09:33:56'
+  end
+
 end
