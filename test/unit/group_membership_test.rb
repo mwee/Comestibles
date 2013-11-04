@@ -63,11 +63,4 @@ test "users should be able to have joined groups" do
     assert @test_group.members.length == 2
   end
 
-  #Should move to an integration test... maybe under models?
-  test "users should be able to join a group" do
-    #should have a method in users for joining a group
-    assert false, "not implemented yet"
-  end
-
-
 end
